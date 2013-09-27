@@ -4,24 +4,26 @@
 	
 <script language="javascript" type="text/javascript">
 function playSound(soundfile) {
-document.getElementById("dummy").innerHTML=
+document.getElementById("dummy").innerHTML=document.getElementById("dummy").innerHTML +
 "<embed src=\""+soundfile+"\" hidden=\"true\" autostart=\"true\" loop=\"false\" />";
 }
+
 </script>
 
 
  </head>
 <body>
 
-<img src = "kompang_main.jpg" width="477" height="413" 
-usemap = "#kompang">
+<div style="display:none;">
+    <audio id="audio1" src="door-knock-1.mp3" controls preload="auto" autobuffer></audio>
+</div>
 
-<map name="kompang1">
-<area shape="rect" coords="0,0,470,400" href="kompang_click.htm">
-</img>
+<script> function EvalSound(soundobj) 
+    { var thissound=document.getElementById(soundobj); thissound.play(); 
+setTimeout( function() { window.location.href = 'kompang_click.htm'; }, 1000); } // change 1000 to whatever value you would want to wait in milliseconds.
+</script>
 
-<span id="click"></span> 
-
+<a href="#" onClick="EvalSound('audio1')"><img src="kompang_main.jpg"></a>
 
 </body>
 
